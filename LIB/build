@@ -1,4 +1,5 @@
 filetype =.asm src 3
+filetype =.macro src 3
 filetype =.unit src 5
 asm asmlib.asm keep=$
 asm sprites.asm keep=$
