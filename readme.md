@@ -8,3 +8,4 @@ All I've found thus far, is the beginnings of a basic sprite editor.  I had lost
 The repo comes with the code for a basic sprite mechanism, and a desktop application for creating and editing those sprites.  The application isn't quite feature complete.  I've had to tweak some of the code (on an GSPlus emulator) because the ORCA/Pascal compiler I have seems to do some strange things.
 So it's probably not a lot of use, but it's a start of preserving some of my old code.
 
+![Sprite Editor Screenshot](https://github.com/pkclsoft/CARPS/blob/594af1d8fd86ec7fa52a69fabbd17dabbc1c55b4/spred.png)
