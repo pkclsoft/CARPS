@@ -1,0 +1,3 @@
+asm spred.pas keep=$
+link spred carplib keep=spred
+

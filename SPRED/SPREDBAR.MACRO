@@ -1,0 +1,10 @@
+ MACRO
+&lab _GetDItemValue
+&lab ldx #$2E15
+ jsl $E10000
+ MEND
+ MACRO
+&lab _SetDItemValue
+&lab ldx #$2F15
+ jsl $E10000
+ MEND

@@ -1,0 +1,73 @@
+Unit CarpLib;
+
+interface
+
+Uses Common;
+
+
+const
+    {  -------------------   Sprites Constants   -------------------  }
+
+    MaxSprites      = 100;      { Maximum number of sprites per sprite file   }
+    MaxShapes       = 7;        { Number of shapes per sprite                 }
+ 
+
+type
+    { Note that the X coordinate only has a range 1 thru 8, as there are two  }
+    { pixels in each byte.                                                    }
+ 
+    GridType        = Record
+                        Grid : Array [1..16,1..8] of Byte;
+                      end;
+    GridTypePtr     = ^GridType;
+ 
+    SpriteType      = Record
+                        NumOfShapes : Integer;
+                        Shape       : Array [1..MaxShapes] of GridTypePtr;
+                      end;
+ 
+    SpriteFType     = Record
+                        PaletteRec   : ColorTable;
+                        NumOfSprites : Integer;
+                        Sprite       : Array [1..MaxSprites] of SpriteType;
+                      end;
+ 
+    Variants        = (Palette, Int, Image);
+ 
+    SpriteRecord    = Record
+                        Case kind : Variants of
+                            Palette : (ColorPalette : ColorTable);
+                            Int     : (Number       : Integer);
+                            Image   : (Grid         : GridType);
+                        end;
+
+procedure SpriteStartUp; extern;
+
+function DrawSprite(height:         integer;
+                     width:          integer;
+                     sprite:         GridTypePtr;
+                     collisionLine:  integer;
+                     mask:           integer;
+                     y:              integer;
+                     x:              integer) : integer; extern;
+
+{
+    value is the nibble value to set (0 .. 15)
+    inByte is the byte to be altered.
+    nibble is 0 for low nibble, 1 for high.
+}
+function SetNibble(value:   integer;
+                   inByte:  integer;
+                   nibble:  integer) : integer; extern;
+
+{
+    inByte is the byte to be altered.
+    nibble is 0 for low nibble, 1 for high.
+}
+function GetNibble(inByte:  integer;
+                   nibble:  integer) : integer; extern;
+          
+implementation
+
+end.
+
