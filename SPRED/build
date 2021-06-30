@@ -1,6 +1,5 @@
 filetype =.pas src 5
 filetype =.asm src 3
 filetype =.macro src 3
-asm spred.pas keep=$
+assemble spred.pas keep=$
 link spred carplib keep=spred
-

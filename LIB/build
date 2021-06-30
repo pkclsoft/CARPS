@@ -1,12 +1,13 @@
 filetype =.asm src 3
 filetype =.macro src 3
 filetype =.unit src 5
-asm asmlib.asm keep=$
-asm sprites.asm keep=$
-asm sysvar.asm keep=$
-makelib -l carplib -r asmlib.root
-makelib -l carplib -r sprites.root sprites.a
-makelib -l carplib -r sysvar.root sysvar.a
-asm carplib.unit keep=$
+assemble asmlib.asm keep=$
+assemble sprites.asm keep=$
+assemble sysvar.asm keep=$
+delete carplib
+makelib carplib +asmlib.root
+makelib carplib +sprites.root +sprites.a
+makelib carplib +sysvar.root +sysvar.a
+assemble carplib.unit keep=$
 copy -C carplib ../spred
 copy -C carplib.int ../spred
